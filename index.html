@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock Bypass Tool</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px 30px;
+            max-width: 450px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #ff0050, #00f2ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #a0a0b0;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        /* Nút TikTok */
+        .btn-tiktok {
+            background: linear-gradient(135deg, #ff0050, #ff4081);
+            box-shadow: 0 4px 20px rgba(255, 0, 80, 0.4);
+        }
+
+        .btn-tiktok:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 0, 80, 0.6);
+        }
+
+        .btn-tiktok:active {
+            transform: translateY(0);
+        }
+
+        .btn-tiktok:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* Nút Bypass - Trạng thái khóa */
+        .btn-bypass {
+            background: #2a2a40;
+            color: #666680;
+            cursor: not-allowed;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-bypass:disabled {
+            opacity: 0.6;
+        }
+
+        /* Nút Bypass - Trạng thái mở khóa */
+        .btn-bypass.unlocked {
+            background: linear-gradient(135deg, #00f2ea, #00c9a7);
+            color: #1e1e2f;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 242, 234, 0.4);
+            animation: pulseUnlock 0.6s ease;
+        }
+
+        .btn-bypass.unlocked:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 242, 234, 0.6);
+        }
+
+        .btn-bypass.unlocked:active {
+            transform: translateY(0);
+        }
+
+        @keyframes pulseUnlock {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .lock-icon {
+            font-size: 18px;
+        }
+
+        .status-text {
+            font-size: 13px;
+            margin-top: 8px;
+            color: #a0a0b0;
+            min-height: 20px;
+        }
+
+        .status-text.success {
+            color: #00f2ea;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 12px;
+            color: #555570;
+        }
+
+        /* Nút reset nhỏ, ẩn ở góc */
+        .reset-btn {
+            position: fixed;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #a0a0b0;
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .reset-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="icon">🔓</div>
+        <h1>Unlock Bypass Tool</h1>
+        <p class="subtitle">
+            Theo dõi TikTok của <strong>@kingshop102</strong> để mở khóa liên kết Bypass.
+        </p>
+
+        <!-- Nút 1: Follow TikTok -->
+        <button class="btn btn-tiktok" id="btnTikTok" onclick="handleTikTokClick()">
+            <span>🎵</span>
+            <span>Theo Dõi TikTok</span>
+        </button>
+
+        <!-- Nút 2: Lấy Bypass Link -->
+        <button class="btn btn-bypass" id="btnBypass" disabled onclick="handleBypassClick()">
+            <span class="lock-icon" id="lockIcon">🔒</span>
+            <span id="bypassText">Lấy Bypass Link</span>
+        </button>
+
+        <p class="status-text" id="statusText"></p>
+
+        <p class="footer">© 2026 Kingshop102</p>
+    </div>
+
+    <!-- Nút reset trạng thái (ẩn nhỏ ở góc phải dưới) -->
+    <button class="reset-btn" onclick="resetUnlockState()">↺ Reset trạng thái</button>
+
+    <script>
+        // ============================================================
+        // CẤU HÌNH LINKS
+        // ============================================================
+        const TIKTOK_URL = "https://www.tiktok.com/@kingshop102";
+        const BYPASS_URL = "https://toolbypass42.github.io/Tool-bypass/";
+
+        // Key dùng để lưu trạng thái vào localStorage
+        const STORAGE_KEY = "kingshop_bypass_unlocked";
+
+        // Biến trạng thái runtime
+        let isUnlocked = false;
+        let isProcessing = false;
+
+        // ============================================================
+        // LẤY CÁC PHẦN TỬ DOM
+        // ============================================================
+        const statusEl     = document.getElementById("statusText");
+        const bypassBtn    = document.getElementById("btnBypass");
+        const tiktokBtn    = document.getElementById("btnTikTok");
+        const lockIcon     = document.getElementById("lockIcon");
+        const bypassText   = document.getElementById("bypassText");
+
+        // ============================================================
+        // KHỞI TẠO: KIỂM TRA TRẠNG THÁI ĐÃ LƯU
+        // ============================================================
+        function init() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+
+            if (saved === "true") {
+                // Đã từng mở khóa → khôi phục trạng thái
+                unlockBypassButton(true);
+                statusEl.textContent = "✅ Trạng thái đã được lưu. Bạn có thể lấy link Bypass.";
+                statusEl.className = "status-text success";
+            } else {
+                // Chưa mở khóa → giữ nguyên trạng thái khóa
+                isUnlocked = false;
+                bypassBtn.disabled = true;
+            }
+        }
+
+        // ============================================================
+        // XỬ LÝ CLICK NÚT TIKTOK
+        // ============================================================
+        function handleTikTokClick() {
+            if (isProcessing) return;
+
+            // Mở link TikTok tab mới
+            window.open(TIKTOK_URL, "_blank", "noopener,noreferrer");
+
+            // Nếu đã mở khóa rồi thì thông báo luôn
+            if (isUnlocked) {
+                statusEl.textContent = "✅ Bạn đã mở khóa trước đó. Hãy bấm 'Lấy Bypass Link'.";
+                statusEl.className = "status-text success";
+                return;
+            }
+
+            isProcessing = true;
+            statusEl.textContent = "⏳ Đang xác minh hành động theo dõi...";
+            statusEl.className = "status-text";
+
+            // Vô hiệu hóa nút TikTok tạm thời
+            tiktokBtn.disabled = true;
+
+            // Giả lập xác minh (1.5 giây)
+            setTimeout(() => {
+                unlockBypassButton(false);
+                statusEl.textContent = "✅ Đã xác minh! Bạn có thể lấy link Bypass.";
+                statusEl.className = "status-text success";
+
+                tiktokBtn.disabled = false;
+                isProcessing = false;
+            }, 1500);
+        }
+
+        // ============================================================
+        // MỞ KHÓA NÚT BYPASS
+        // @param {boolean} fromStorage - true nếu khôi phục từ localStorage (không lưu lại)
+        // ============================================================
+        function unlockBypassButton(fromStorage = false) {
+            if (isUnlocked) return;
+
+            bypassBtn.disabled = false;
+            bypassBtn.classList.add("unlocked");
+            lockIcon.textContent = "🔓";
+            bypassText.textContent = "Lấy Bypass Link";
+
+            isUnlocked = true;
+
+            // Lưu trạng thái vào localStorage (chỉ khi không phải đang khôi phục)
+            if (!fromStorage) {
+                try {
+                    localStorage.setItem(STORAGE_KEY, "true");
+                } catch (e) {
+                    console.warn("Không thể lưu localStorage:", e);
+                }
+            }
+        }
+
+        // ============================================================
+        // XỬ LÝ CLICK NÚT BYPASS (sau khi đã mở khóa)
+        // ============================================================
+        function handleBypassClick() {
+            if (!isUnlocked) return;
+
+            window.open(BYPASS_URL, "_blank", "noopener,noreferrer");
+
+            statusEl.textContent = "🚀 Đang chuyển hướng đến Bypass Tool...";
+            statusEl.className = "status-text success";
+
+            setTimeout(() => {
+                statusEl.textContent = "✅ Link Bypass đã được mở ở tab mới.";
+            }, 2000);
+        }
+
+        // ============================================================
+        // RESET TRẠNG THÁI (xoá khỏi localStorage)
+        // ============================================================
+        function resetUnlockState() {
+            if (!confirm("Bạn có chắc muốn reset trạng thái mở khóa?")) return;
+
+            try {
+                localStorage.removeItem(STORAGE_KEY);
+            } catch (e) {}
+
+            // Reset UI
+            isUnlocked = false;
+            bypassBtn.disabled = true;
+            bypassBtn.classList.remove("unlocked");
+            lockIcon.textContent = "🔒";
+            bypassText.textContent = "Lấy Bypass Link";
+
+            statusEl.textContent = "🔄 Đã reset. Vui lòng theo dõi TikTok để mở khóa lại.";
+            statusEl.className = "status-text";
+        }
+
+        // Khởi chạy khi tải trang
+        init();
+    </script>
+
+</body>
+</html>
