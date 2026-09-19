@@ -40,6 +40,7 @@
       0 0 60px rgba(255, 20, 147, 0.3),
       inset 0 0 30px rgba(255, 20, 147, 0.1);
     animation: glow 2.5s ease-in-out infinite alternate;
+    z-index: 2;
   }
 
   @keyframes glow {
@@ -68,6 +69,12 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 20px rgba(255, 20, 147, 0.7);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
   }
 
   .icon svg {
@@ -105,6 +112,7 @@
     transition: all 0.25s ease;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
   }
 
   .btn-main {
@@ -112,6 +120,21 @@
     color: #000;
     box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
     border: 2px solid #ff1493;
+  }
+
+  .btn-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .btn-main:hover::before {
+    left: 100%;
   }
 
   .btn-main:hover {
@@ -141,6 +164,8 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
+    position: relative;
+    z-index: 1;
   }
 
   .dot {
@@ -172,6 +197,7 @@
     color: #ff1493;
     font-size: 12px;
     opacity: 0.7;
+    letter-spacing: 1px;
   }
 
   .divider::before,
@@ -192,6 +218,7 @@
     box-shadow: 0 0 10px #ff1493;
     pointer-events: none;
     animation: floatUp linear infinite;
+    z-index: 1;
   }
 
   @keyframes floatUp {
@@ -228,10 +255,10 @@
     <h1>JOIN DISCORD</h1>
     <p class="subtitle">Tham gia cộng đồng ngay hôm nay</p>
 
-    <a href="https://phienchoso.com/d7bb4abfe4cbf48b11b5.rv" target="_blank" rel="noopener" class="btn btn-main">
+    <a href="https://phienchoso.com/d09d7c37e7ca486ce02b.tk" target="_blank" rel="noopener" class="btn btn-main">
       <span class="btn-label">
         <span class="dot"></span>
-        LINK CHÍNH
+        LINK CHÍNH DISCORD
       </span>
     </a>
 
