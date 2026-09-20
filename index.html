@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join Discord</title>
+<title>Bypass Tool - Tang Qua King</title>
 <style>
   * {
     margin: 0;
@@ -14,264 +14,217 @@
 
   body {
     min-height: 100vh;
-    background: #000;
-    background-image:
-      radial-gradient(circle at 20% 20%, rgba(255, 20, 147, 0.25), transparent 45%),
-      radial-gradient(circle at 80% 80%, rgba(255, 20, 147, 0.18), transparent 50%);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     padding: 20px;
     color: #fff;
-    overflow: hidden;
   }
 
-  .card {
-    position: relative;
+  .container {
     width: 100%;
     max-width: 420px;
-    background: linear-gradient(160deg, #1a0010 0%, #0a0005 100%);
-    border: 2px solid #ff1493;
-    border-radius: 24px;
-    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px 25px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     text-align: center;
-    box-shadow:
-      0 0 30px rgba(255, 20, 147, 0.6),
-      0 0 60px rgba(255, 20, 147, 0.3),
-      inset 0 0 30px rgba(255, 20, 147, 0.1);
-    animation: glow 2.5s ease-in-out infinite alternate;
-    z-index: 2;
   }
 
-  @keyframes glow {
-    from {
-      box-shadow:
-        0 0 25px rgba(255, 20, 147, 0.5),
-        0 0 50px rgba(255, 20, 147, 0.2),
-        inset 0 0 25px rgba(255, 20, 147, 0.1);
-    }
-    to {
-      box-shadow:
-        0 0 45px rgba(255, 20, 147, 0.9),
-        0 0 90px rgba(255, 20, 147, 0.5),
-        inset 0 0 40px rgba(255, 20, 147, 0.2);
-    }
+  .title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(90deg, #25F4EE, #FE2C55);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  .icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 20px;
-    background: #000;
-    border: 2px solid #ff1493;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 0 20px rgba(255, 20, 147, 0.7);
-    animation: pulse 2s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
-
-  .icon svg {
-    width: 45px;
-    height: 45px;
-    fill: #ff1493;
-    filter: drop-shadow(0 0 6px #ff1493);
-  }
-
-  h1 {
-    font-size: 26px;
-    margin-bottom: 10px;
-    color: #ff1493;
-    text-shadow: 0 0 10px rgba(255, 20, 147, 0.9), 0 0 25px rgba(255, 20, 147, 0.6);
-    letter-spacing: 1px;
-  }
-
-  p.subtitle {
-    font-size: 14px;
-    color: #ffb3d9;
-    margin-bottom: 30px;
-    opacity: 0.9;
+  .subtitle {
+    font-size: 13px;
+    color: #a0a0c0;
+    margin-bottom: 25px;
   }
 
   .btn {
-    display: block;
     width: 100%;
-    padding: 16px 20px;
-    margin-bottom: 16px;
-    border-radius: 14px;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: all 0.25s ease;
-    position: relative;
-    overflow: hidden;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
-  }
-
-  .btn-main {
-    background: linear-gradient(90deg, #ff1493, #ff4fa8);
-    color: #000;
-    box-shadow: 0 0 20px rgba(255, 20, 147, 0.8);
-    border: 2px solid #ff1493;
-  }
-
-  .btn-main::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-    transition: left 0.5s ease;
-  }
-
-  .btn-main:hover::before {
-    left: 100%;
-  }
-
-  .btn-main:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 0 35px rgba(255, 20, 147, 1), 0 0 60px rgba(255, 20, 147, 0.5);
-  }
-
-  .btn-backup {
-    background: transparent;
-    color: #ff1493;
-    border: 2px solid #ff1493;
-    box-shadow: inset 0 0 15px rgba(255, 20, 147, 0.2);
-  }
-
-  .btn-backup:hover {
-    background: rgba(255, 20, 147, 0.15);
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 0 25px rgba(255, 20, 147, 0.8);
-  }
-
-  .btn:active {
-    transform: scale(0.98);
-  }
-
-  .btn-label {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .btn-tiktok {
+    background: linear-gradient(135deg, #000, #25F4EE 200%);
+    border: 1px solid #25F4EE;
+    box-shadow: 0 0 20px rgba(37, 244, 238, 0.3);
+  }
+
+  .btn-tiktok:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(254, 44, 85, 0.5);
+    border-color: #FE2C55;
+  }
+
+  .btn-tiktok.done {
+    background: linear-gradient(135deg, #1a5c1a, #2ecc71);
+    border-color: #2ecc71;
+    cursor: default;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+  }
+
+  .btn-bypass {
+    background: linear-gradient(135deg, #FE2C55, #ff6b81);
+    box-shadow: 0 0 20px rgba(254, 44, 85, 0.4);
     position: relative;
-    z-index: 1;
   }
 
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #00ff88;
-    box-shadow: 0 0 8px #00ff88;
-    animation: blink 1.5s infinite;
+  .btn-bypass:hover:not(.locked) {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(254, 44, 85, 0.7);
   }
 
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.3; }
+  .btn-bypass.locked {
+    background: #2a2a3e;
+    color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+    border: 1px solid #333;
   }
 
-  .note {
+  .lock-icon {
+    font-size: 16px;
+  }
+
+  .status {
     margin-top: 20px;
     font-size: 12px;
-    color: #ffb3d9;
-    opacity: 0.7;
+    color: #7a7a9e;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed #333;
   }
 
-  .divider {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0;
-    color: #ff1493;
-    font-size: 12px;
-    opacity: 0.7;
-    letter-spacing: 1px;
+  .status.unlocked {
+    color: #2ecc71;
+    border-color: #2ecc71;
   }
 
-  .divider::before,
-  .divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #ff1493, transparent);
+  .icon {
+    font-size: 18px;
   }
 
-  /* Floating particles */
-  .particle {
-    position: fixed;
-    width: 4px;
-    height: 4px;
-    background: #ff1493;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #ff1493;
-    pointer-events: none;
-    animation: floatUp linear infinite;
-    z-index: 1;
+  @keyframes pop {
+    0% { transform: scale(0.9); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
   }
 
-  @keyframes floatUp {
-    from {
-      transform: translateY(100vh) scale(0);
-      opacity: 0;
-    }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    to {
-      transform: translateY(-100vh) scale(1);
-      opacity: 0;
-    }
+  .pop {
+    animation: pop 0.4s ease;
   }
 </style>
 </head>
 <body>
 
-  <!-- Floating particles -->
-  <div class="particle" style="left: 10%; animation-duration: 8s; animation-delay: 0s;"></div>
-  <div class="particle" style="left: 25%; animation-duration: 10s; animation-delay: 2s;"></div>
-  <div class="particle" style="left: 45%; animation-duration: 7s; animation-delay: 1s;"></div>
-  <div class="particle" style="left: 65%; animation-duration: 11s; animation-delay: 3s;"></div>
-  <div class="particle" style="left: 80%; animation-duration: 9s; animation-delay: 1.5s;"></div>
-  <div class="particle" style="left: 92%; animation-duration: 12s; animation-delay: 4s;"></div>
+<div class="container">
+  <div class="title">🔓 BYPASS TOOL</div>
+  <div class="subtitle">Follow TikTok để mở khóa link bypass</div>
 
-  <div class="card">
-    <div class="icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20.317 4.369a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-      </svg>
-    </div>
+  <a id="btnTiktok" class="btn btn-tiktok" href="https://tiktok.com/@tangquaking" target="_blank" rel="noopener">
+    <span class="icon">🎵</span>
+    <span id="tiktokText">Follow TikTok @tangquaking</span>
+  </a>
 
-    <h1>JOIN DISCORD</h1>
-    <p class="subtitle">Tham gia cộng đồng ngay hôm nay</p>
+  <a id="btnBypass" class="btn btn-bypass locked" href="#" onclick="return checkUnlock(event)">
+    <span class="lock-icon" id="lockIcon">🔒</span>
+    <span id="bypassText">Lấy Bypass Link</span>
+  </a>
 
-    <a href="https://phienchoso.com/d09d7c37e7ca486ce02b.tk" target="_blank" rel="noopener" class="btn btn-main">
-      <span class="btn-label">
-        <span class="dot"></span>
-        LINK CHÍNH DISCORD
-      </span>
-    </a>
+  <div id="status" class="status">⚠️ Bạn cần follow TikTok trước để mở khóa</div>
+</div>
 
-    <div class="divider">LINK DỰ PHÒNG</div>
+<script>
+  const TIKTOK_URL = "https://tiktok.com/@tangquaking";
+  const BYPASS_URL = "https://toolbypass42.github.io/Kskhc6ggU/";
+  const STORAGE_KEY = "bypass_unlocked_v1";
 
-    <a href="https://sitetop.one/4sGzpZ" target="_blank" rel="noopener" class="btn btn-backup">
-      <span class="btn-label">
-        🔗 LINK DỰ PHÒNG
-      </span>
-    </a>
+  const btnTiktok = document.getElementById("btnTiktok");
+  const btnBypass = document.getElementById("btnBypass");
+  const lockIcon = document.getElementById("lockIcon");
+  const bypassText = document.getElementById("bypassText");
+  const tiktokText = document.getElementById("tiktokText");
+  const statusEl = document.getElementById("status");
 
-    <p class="note">Nếu link chính bị lỗi, vui lòng sử dụng link dự phòng</p>
-  </div>
+  // Kiểm tra trạng thái đã lưu
+  function isUnlocked() {
+    return localStorage.getItem(STORAGE_KEY) === "true";
+  }
+
+  function unlockUI() {
+    btnTiktok.classList.add("done");
+    btnTiktok.classList.remove("btn-tiktok");
+    btnTiktok.href = "javascript:void(0)";
+    btnTiktok.onclick = null;
+    tiktokText.textContent = "✅ Đã Follow TikTok";
+
+    btnBypass.classList.remove("locked");
+    lockIcon.textContent = "🔓";
+    bypassText.textContent = "Lấy Bypass Link";
+
+    statusEl.textContent = "✅ Đã mở khóa! Bấm nút trên để lấy link.";
+    statusEl.classList.add("unlocked");
+
+    // Hiệu ứng pop
+    btnBypass.classList.add("pop");
+    setTimeout(() => btnBypass.classList.remove("pop"), 400);
+  }
+
+  // Khi bấm nút follow
+  btnTiktok.addEventListener("click", function () {
+    // Lưu trạng thái đã follow
+    localStorage.setItem(STORAGE_KEY, "true");
+    // Mở link TikTok sau khi lưu
+    setTimeout(() => {
+      unlockUI();
+    }, 300);
+  });
+
+  // Kiểm tra khi bấm nút bypass
+  function checkUnlock(e) {
+    if (!isUnlocked()) {
+      e.preventDefault();
+      statusEl.textContent = "❌ Bạn chưa follow TikTok! Hãy follow để mở khóa.";
+      statusEl.classList.remove("unlocked");
+      btnBypass.classList.add("pop");
+      setTimeout(() => btnBypass.classList.remove("pop"), 400);
+      return false;
+    }
+    // Đã mở khóa -> chuyển trang
+    window.location.href = BYPASS_URL;
+    return false;
+  }
+
+  // Khởi tạo khi tải trang
+  if (isUnlocked()) {
+    unlockUI();
+  }
+</script>
 
 </body>
 </html>
